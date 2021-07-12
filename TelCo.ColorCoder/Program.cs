@@ -18,54 +18,14 @@ namespace TelCo.ColorCoder
             colorMapMinor = new Color[] { Color.Blue, Color.Orange, Color.Green, Color.Brown, Color.SlateGray };
         }
 
-        static public Color getcolorMapMajor(int index)
-        {
-            return colorMapMajor[index];
-        }
-        static public int getcolorMapMajorlen()
-        {
-            return colorMapMajor.Length;
-        }
-        static public Color getcolorMapMinor(int index)
-        {
-            return colorMapMinor[index];
-        }
-        static public int getcolorMapMinorlen()
-        {
-            return colorMapMinor.Length;
-        }
+        static public Color getcolorMapMajor(int index){return colorMapMajor[index];}
 
-        public static void Main(string[] args)
-        {
-            int pairNumber = 4;
-            ColorPair testPair1 = ClassforGetColorFromPairNumber.GetColorFromPairNumber(pairNumber);
-            Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
-            Debug.Assert(testPair1.majorColor == Color.White);
-            Debug.Assert(testPair1.minorColor == Color.Brown);
+        static public int getcolorMapMajorlen(){return colorMapMajor.Length;}
 
-            pairNumber = 5;
-            testPair1 = ClassforGetColorFromPairNumber.GetColorFromPairNumber(pairNumber);
-            Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
-            Debug.Assert(testPair1.majorColor == Color.White);
-            Debug.Assert(testPair1.minorColor == Color.SlateGray);
+        static public Color getcolorMapMinor(int index){return colorMapMinor[index];}
 
-            pairNumber = 23;
-            testPair1 = ClassforGetColorFromPairNumber.GetColorFromPairNumber(pairNumber);
-            Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
-            Debug.Assert(testPair1.majorColor == Color.Violet);
-            Debug.Assert(testPair1.minorColor == Color.Green);
+        static public int getcolorMapMinorlen(){return colorMapMinor.Length;}
 
-            ColorPair testPair2 = new ColorPair() { majorColor = Color.Yellow, minorColor = Color.Green };
-            pairNumber = ClassforGetPairNumberFromColor.GetPairNumberFromColor(testPair2);
-            Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}\n", testPair2, pairNumber);
-            Debug.Assert(pairNumber == 18);
-
-            testPair2 = new ColorPair() { majorColor = Color.Red, minorColor = Color.Blue };
-            pairNumber = ClassforGetPairNumberFromColor.GetPairNumberFromColor(testPair2);
-            Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}\n", testPair2, pairNumber);
-            Debug.Assert(pairNumber == 6);
-
-            ColorCodingManual.manual();
-        }
+        
     }
 }
