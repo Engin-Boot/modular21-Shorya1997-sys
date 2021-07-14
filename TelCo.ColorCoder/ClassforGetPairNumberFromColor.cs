@@ -8,37 +8,38 @@ namespace TelCo.ColorCoder
 	{
         internal static int GetPairNumberFromColor(ColorPair pair)
         {
-            // Find the major color in the array and get the index
+            
             int majorIndex = -1;
-            for (int i = 0; i < Program.getcolorMapMajorlen(); i++)
-            {
-                if (Program.getcolorMapMajor(i) == pair.majorColor)
-                {
-                    majorIndex = i;
-                    break;
-                }
-            }
-
-            // Find the minor color in the array and get the index
+           
+            majorIndex = doforloop(ColorUtillclass.getcolorMapMajorlen(), pair.majorColor, true);
+            
             int minorIndex = -1;
-            for (int i = 0; i < Program.getcolorMapMinorlen(); i++)
-            {
-                if (Program.getcolorMapMinor(i) == pair.minorColor)
-                {
-                    minorIndex = i;
-                    break;
-                }
-            }
-            // If colors can not be found throw an exception
+            
+            minorIndex = doforloop(ColorUtillclass.getcolorMapMinorlen(), pair.minorColor,false);
+
+            
             if (majorIndex == -1 || minorIndex == -1)
             {
                 throw new ArgumentException(
                     string.Format("Unknown Colors: {0}", pair.ToString()));
             }
 
-            // Compute pair number and Return  
-            // (Note: +1 in compute is because pair number is 1 based, not zero)
-            return (majorIndex * Program.getcolorMapMinorlen()) + (minorIndex + 1);
+            
+            return (majorIndex * ColorUtillclass.getcolorMapMinorlen()) + (minorIndex + 1);
+        }
+
+        internal static int doforloop(int len, Color pair,bool majororminor)
+        {
+            int index = -1;
+            for (int i = 0; i < len; i++)
+            {
+                if (ColorUtillclass.getcolorMap(i,majororminor) == pair)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
         }
 
     }
